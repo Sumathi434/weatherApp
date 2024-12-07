@@ -24,14 +24,24 @@ function Weatherapp() {
 
   const AllIcons = {
     "01d": Sunny,
+    "01n": Sunny, 
     "02d": ClearIcon,
+    "02n": ClearIcon,
     "03d": CloudIcon,
+    "03n": CloudIcon,
+    "04d": CloudIcon,
+    "04n": CloudIcon,
     "09d": ShowerRain,
+    "09n": ShowerRain,
     "10d": RainIcon,
+    "10n": RainIcon,
     "11d": Thunderstorm,
+    "11n": Thunderstorm,
     "13d": SnowIcon,
+    "13n": SnowIcon,
+    "50d": CloudIcon, 
+    "50n": CloudIcon,
   };
-
   const Search = async (city) => {
     if (city === "") {
       alert("Enter city name");
@@ -41,13 +51,15 @@ function Weatherapp() {
       const URL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${API_KEY}`;
       const response = await fetch(URL);
       const data = await response.json();
-
+  
       if (!response.ok) {
         alert(data.message);
         return;
       }
-
+  
       console.log(data);
+      console.log("Weather Icon:", data.weather[0].icon); 
+  
       const Icon = AllIcons[data.weather[0].icon] || Sunny;
       setWeather({
         humidity: data.main.humidity,
@@ -61,7 +73,7 @@ function Weatherapp() {
       console.error("Error fetching the data");
     }
   };
-
+  
   useEffect(() => {
     Search("");
   }, []);
