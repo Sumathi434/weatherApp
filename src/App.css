@@ -24,17 +24,17 @@ h2 {
 
 .search-bar {
   display: flex;
-  padding: 30px 30px;
+  padding: 26px 30px;
 
 }
-
 .search-bar img {
   width: 30px;
-  height: 30px;
+  height: 28px;
   padding: 5px;
   background-color: white;
   border-top-right-radius: 50%;
   border-bottom-right-radius: 50%;
+  cursor: pointer;
 }
 
 .search-bar input {
@@ -44,12 +44,17 @@ h2 {
   outline: none;
   width: 90%;
   font-size: 20px;
+  cursor: pointer;
+  border: 1px solid rgb(241, 238, 238);
 }
 
 .search-bar img:active {
   background: lightgray;
 }
-
+.search-bar input:hover{
+  background-color: rgb(248, 243, 243);
+  box-shadow:0 0 10px #272121;
+}
 .Sunny {
   display: flex;
   justify-content: center;
